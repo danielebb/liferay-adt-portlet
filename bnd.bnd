@@ -1,0 +1,4 @@
+Bundle-Name: liferay-adt-portlet2
+Bundle-SymbolicName: it.dbb.base.adt
+Bundle-Version: 1.0.0
+Export-Package: it.dbb.base.adt.constants
