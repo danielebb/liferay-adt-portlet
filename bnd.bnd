@@ -1,4 +1,9 @@
-Bundle-Name: liferay-adt-portlet2
+Bundle-Name: liferay-adt-portlet
 Bundle-SymbolicName: it.dbb.base.adt
 Bundle-Version: 1.0.0
-Export-Package: it.dbb.base.adt.constants
+Export-Package: \
+	it.dbb.base.adt.constants,\
+	it.dbb.base.adt.portlet,\
+	it.dbb.base.adt.portlet.action,\
+	it.dbb.base.adt.portlet.configuration
+-metatype: *
