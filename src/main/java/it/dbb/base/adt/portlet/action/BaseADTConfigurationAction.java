@@ -6,15 +6,15 @@ import javax.portlet.PortletConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.osgi.service.component.annotations.Component;
-
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 
-public class BaseADTConfigurationAction extends DefaultConfigurationAction implements ConfigurationAction {
+public abstract class BaseADTConfigurationAction extends DefaultConfigurationAction implements ConfigurationAction {
 
+	public abstract String getClassName();
+	
 	@Override
 	public String getJspPath(HttpServletRequest request) {
 
@@ -25,7 +25,7 @@ public class BaseADTConfigurationAction extends DefaultConfigurationAction imple
 	public void include(PortletConfig portletConfig, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
-		request.setAttribute("className", portletConfig.getPortletName());
+		request.setAttribute("className", getClassName());
 		
 		super.include(portletConfig, request, response);
 	}

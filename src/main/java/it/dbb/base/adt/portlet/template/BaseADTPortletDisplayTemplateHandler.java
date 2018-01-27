@@ -8,33 +8,24 @@ import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTempla
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
 
 public abstract class BaseADTPortletDisplayTemplateHandler extends BasePortletDisplayTemplateHandler {
-
-	public abstract String getPortletName();
-
-	@Override
-	public String getClassName() {
-
-		//long classId = PortalUtil.getClassNameId(getPortletName());
-		
-		return getPortletName();
-	}
 
 	@Override
 	public String getName(Locale locale) {
 
 		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle("content.Language", locale, getClass());
 
-		String portletTitle = PortalUtil.getPortletTitle(getPortletName(), resourceBundle);
+		String name = LanguageUtil.get(locale, "template");
+		
+		String portletTitle = PortalUtil.getPortletTitle(getClassName(), resourceBundle);
+		
+		if(Validator.isNotNull(portletTitle)) {
+			
+			name = portletTitle.concat(StringPool.SPACE).concat(name);
+		}
 
-		return portletTitle.concat(StringPool.SPACE).concat(LanguageUtil.get(locale, "template"));
+		return name;
 	}
-
-	@Override
-	public String getResourceName() {
-
-		return getPortletName();
-	}
-
 }

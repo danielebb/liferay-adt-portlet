@@ -2,6 +2,8 @@ package it.dbb.base.adt.portlet;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.portlet.MimeResponse;
 import javax.portlet.PortletException;
@@ -48,7 +50,8 @@ public class BaseADTPortlet extends MVCPortlet {
 					try {
 
 						String renderedDDMTemplate = PortletDisplayTemplateUtil.renderDDMTemplate(request, response,
-								portletDisplayDDMTemplate.getTemplateId(), null, /* contextObjects */ null);
+								portletDisplayDDMTemplate.getTemplateId(), /* entries */ new ArrayList<>(),
+								/* contextObjects */ new HashMap<>());
 
 						Writer writer = getResponseWriter(portletResponse);
 

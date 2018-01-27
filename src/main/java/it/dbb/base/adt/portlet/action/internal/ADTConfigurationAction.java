@@ -17,4 +17,10 @@ import it.dbb.base.adt.portlet.action.BaseADTConfigurationAction;
 	},service = ConfigurationAction.class)
 public class ADTConfigurationAction extends BaseADTConfigurationAction {
 
+	@Override
+	public String getClassName() {
+		
+		return ADTPortletKeys.ADT;
+	}
+
 }
