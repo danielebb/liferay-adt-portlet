@@ -28,4 +28,10 @@ public abstract class BaseADTPortletDisplayTemplateHandler extends BasePortletDi
 
 		return name;
 	}
+	
+	@Override
+	public String getClassName() {
+		
+		return getResourceName();
+	}
 }

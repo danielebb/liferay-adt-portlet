@@ -11,12 +11,6 @@ import it.dbb.base.adt.portlet.template.BaseADTPortletDisplayTemplateHandler;
 public class ADTPortletDisplayTemplateHandler extends BaseADTPortletDisplayTemplateHandler {
 
 	@Override
-	public String getClassName() {
-		
-		return ADTPortletKeys.ADT;
-	}
-
-	@Override
 	public String getResourceName() {
 		
 		return ADTPortletKeys.ADT;
